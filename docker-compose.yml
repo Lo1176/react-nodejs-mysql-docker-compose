@@ -15,7 +15,7 @@ services:
       MYSQL_HOST: localhost
       MYSQL_ROOT_PASSWORD: root
     ports:
-      - 3306:3306
+      - 3305:3305
     restart: unless-stopped
     volumes:
       - ./db/sample.sql:/docker-entrypoint-initdb.d/sample.sql
@@ -54,7 +54,8 @@ services:
     container_name: client_container
     environment:
       <<: *common-variables
-      NODE_PATH: src
+      NODE_PATH: 
+    # ports for client (front) http://localhost:3000
     ports:
       - 3000:3000
     volumes:
