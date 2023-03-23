@@ -32,6 +32,7 @@ services:
       - 8080:80
     restart: always
   server:
+    # build can be specified as a string (or as an object) containing a path to the build context
     build: ./server
     container_name: node_server_container
     depends_on:
@@ -41,8 +42,10 @@ services:
       MYSQL_HOST_IP: mysql-db
     ports:
       - 8000:8000
+    # volumes are the persistent data connected to each container
     volumes:
       - ./server:/app
+    # links is used to make connections between containers
     links:
       - mysql-db
     command: npm start
