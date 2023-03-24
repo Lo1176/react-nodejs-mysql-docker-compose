@@ -54,7 +54,7 @@ services:
     container_name: client_container
     environment:
       <<: *common-variables
-      NODE_PATH: 
+      NODE_PATH: src
     # ports for client (front) http://localhost:3000
     ports:
       - 3000:3000
